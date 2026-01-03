@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 40px;
+}
+
+.container {
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 12px;
+    width: 450px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.tool-name {
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 25px;
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.menu select, .menu button, .input-form input, .input-form button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: none;
+    font-size: 1em;
+}
+
+.menu button, .input-form button {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.menu button:hover, .input-form button:hover {
+    background-color: #45a049;
+}
+
+.input-form {
+    margin-top: 20px;
+}
+
+.result {
+    background: #0a0a0a;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-family: monospace;
+    white-space: pre-wrap;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    width: calc(100% - 30px);
+    padding-right: 10px;
+}
+
+.toggle-eye {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2em;
+    user-select: none;
+}
+
+/* download button */
+.download-box {
+    margin-top: 12px;
+    text-align: center;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 10px 14px;
+    background: #4caf50;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background .3s;
+}
+
+.download-btn:hover {
+    background: #45a049;
+}

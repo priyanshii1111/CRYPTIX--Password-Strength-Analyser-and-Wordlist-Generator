@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRYPTIX - Password Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="tool-name">CRYPTIX</h1>
+
+        <div class="menu">
+            <form method="POST">
+                <select name="choice" required>
+                    <option value="">--Select Option--</option>
+                    <option value="wordlist" {% if choice == 'wordlist' %}selected{% endif %}>Wordlist Generator</option>
+                    <option value="strength" {% if choice == 'strength' %}selected{% endif %}>Password Strength Checker</option>
+                    <option value="exit" {% if choice == 'exit' %}selected{% endif %}>Exit</option>
+                </select>
+                <button type="submit">Go</button>
+            </form>
+        </div>
+
+        {% if choice == "wordlist" %}
+        <div class="input-form">
+            <form method="POST">
+                <input type="hidden" name="choice" value="wordlist">
+                <input type="text" name="name" placeholder="Enter Name" required>
+                <input type="text" name="year" placeholder="Enter Year" required>
+                <input type="text" name="extra" placeholder="Extra info (optional)">
+                <button type="submit">Generate Wordlist</button>
+            </form>
+        </div>
+        {% endif %}
+
+        {% if choice == "strength" %}
+        <div class="input-form">
+            <form method="POST">
+                <input type="hidden" name="choice" value="strength">
+                <div class="password-wrapper">
+                    <input type="password" id="password" name="password" placeholder="Enter Password" required>
+                    <span class="toggle-eye" onclick="togglePassword()">👁️</span>
+                </div>
+                <button type="submit">Check Strength</button>
+            </form>
+        </div>
+        {% endif %}
+
+        {% if result %}
+        <div class="result">
+            <pre>{{ result }}</pre>
+        </div>
+
+        {% if choice == "wordlist" %}
+        <div class="download-box">
+            <a class="download-btn" href="/download-wordlist" download>
+                Download Wordlist
+            </a>
+        </div>
+        {% endif %}
+        {% endif %}
+    </div>
+
+    <script>
+    function togglePassword() {
+        const pwField = document.getElementById("password");
+        pwField.type = pwField.type === "password" ? "text" : "password";
+    }
+    </script>
+</body>
+</html>
